@@ -1,0 +1,54 @@
+<form class="pet-form">
+  <mat-card class="fields-container">
+    <div>
+      <a [routerLink]="['../../../owner-profile', ownerId]">
+        <button mat-icon-button class="owner-nav" color="primary">
+          <mat-icon>keyboard_arrow_left</mat-icon> Owner
+        </button>
+      </a>
+    </div>
+    <button *ngIf="petId" (click)="closeEditMode()" class="to-right" mat-mini-fab>
+      <mat-icon color="primary">close</mat-icon>
+    </button>
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>pets</mat-icon> Pet Name
+      </mat-label>
+      <input matInput placeholder="Pet Name">
+    </mat-form-field>
+
+    <mat-form-field class="datepicker" appearance="fill">
+      <mat-label>Birthday</mat-label>
+      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerPet">
+      <mat-datepicker-toggle matSuffix [for]="pickerPet"></mat-datepicker-toggle>
+      <mat-datepicker #pickerPet></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Color</mat-label>
+      <input matInput placeholder="Color">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Specie</mat-label>
+      <input matInput placeholder="Specie">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Size</mat-label>
+      <input matInput placeholder="Size">
+    </mat-form-field>
+    <div class="form-field">
+      <mat-radio-group aria-label="Select sex">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="form-field">
+      <mat-slide-toggle labelPosition="before">Vaccinated</mat-slide-toggle>
+    </div>
+
+    <button mat-raised-button class="save-button" color="primary">Save</button>
+  </mat-card>
+</form>

@@ -1,0 +1,12 @@
+<div class="home-two-column-container">
+  <div class="column-1">
+    <ul class="vertical-menu" *ngFor="let tab of tabs">
+      <li (click)="navigate(tab)" [ngClass]="{'active':activeTab == tab.url}"><a class="tab"
+        >{{tab.name}}</a></li>
+    </ul>
+  </div>
+
+  <div class="column-2">
+    <router-outlet></router-outlet>
+  </div>
+</div>

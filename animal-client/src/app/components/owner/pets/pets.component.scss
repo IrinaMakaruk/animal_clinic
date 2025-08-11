@@ -1,0 +1,53 @@
+.pets-block-row {
+  position: relative;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.pets-block__head {
+  margin-bottom: 30px;
+  color: #48484b;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.pets-block-plus-button {
+  position: absolute;
+  right: -1px;
+  top: 16px;
+  width: 35px;
+  height: 35px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.header-image {
+  height: 80px;
+  width: 80px;
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.pet-edit-arrow {
+  top: 30px;
+  right: 0;
+  position: absolute;
+}
+
+.subtitle-text {
+  display: inline-block;
+  margin-right: 20px;
+}
+.subtitle-right-text {
+  display: inline-block;
+  color: black;
+}
+
+@media(min-width:550px) and (max-width: 768px){
+  .header-image {
+    height: 40px;
+    width: 40px;
+  }
+}

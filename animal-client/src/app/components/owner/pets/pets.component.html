@@ -1,0 +1,39 @@
+<div *ngIf="!isLoading" class="pets-block-row">
+  <div class="pets-block__head"><mat-icon class="custom-icon">pets</mat-icon> PETS</div>
+    <a [routerLink]="['../../owner-profile', ownerId,'add-new-pet']">
+      <button class="pets-block-plus-button" mat-mini-fab>
+        <mat-icon color="primary">add</mat-icon>
+      </button>
+    </a>
+  <ng-container *ngIf="pets?.length; else noTitle">
+    <mat-card *ngFor="let pet of pets" class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-subtitle>{{pet?.species.label | uppercase }}</mat-card-subtitle>
+        <a [routerLink]="['../../pet-profile', pet.id, ownerId]">
+          <button mat-icon-button class="pet-edit-arrow " color="primary">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </a>
+        <mat-card-title>{{pet.name | titlecase}}</mat-card-title>
+        <mat-card-subtitle>{{pet?.size | titlecase }}, {{pet.age}} <span *ngIf="pet.age>0">'s</span></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div><mat-card-subtitle class="subtitle-text">Vaccinated</mat-card-subtitle><div class="subtitle-right-text"><mat-icon *ngIf="pet.vaccinated">check</mat-icon>{{pet.vaccinated ? 'Yes' : 'No'}}</div></div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
+  <ng-template #noTitle>
+    <mat-card class="card">
+      <p>
+      No Pets
+      </p>
+  </mat-card>
+  </ng-template>
+</div>
+
+<div *ngIf="isLoading" class="loader">
+  <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>
+

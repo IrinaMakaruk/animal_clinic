@@ -1,0 +1,57 @@
+<div *ngIf="!isLoading" class="pet-container">
+  <div class="m-20">
+    <a [routerLink]="['../../../../owner-profile', ownerId]">
+      <button mat-icon-button class="pet-edit-arrow " color="primary">
+        <mat-icon>keyboard_arrow_left</mat-icon> Owner
+      </button>
+    </a>
+  </div>
+  <div class="user-details">
+    <div class="user-details-avatar an-owner-profile">
+      <div class="an-photo-container">
+        <img class="an-avatar-pic" src="../../../assets/images/owner.JPG">
+      </div>
+    </div>
+    <div class="user-details-desc inline-block">
+      <div class="user-details-desc__name"> {{pet?.name}} </div>
+      <div class="user-details-desc__text">{{pet?.species?.label | uppercase }}</div>
+    </div>
+  </div>
+  <div class="pet-info-card" *ngIf="!editMode">
+    <mat-card>
+      <mat-card-header>
+        <button (click)="editMode=!editMode" class="pet-edit-button" mat-mini-fab>
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+        <div class="subtitles">
+          <mat-card-subtitle class="subtitle-text">Name: <div class="subtitle-right-text">{{pet?.name}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">Age: <div class="subtitle-right-text">{{pet?.age}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">Specie: <div class="subtitle-right-text">{{pet?.species?.label}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">Sex: <div class="subtitle-right-text">{{pet?.sex}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">Color: <div class="subtitle-right-text">{{pet?.color}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">Size: <div class="subtitle-right-text">{{pet?.size}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">Vaccinated
+            <mat-icon *ngIf="pet?.vaccinated">check</mat-icon>
+            <div class="subtitle-right-text">{{pet?.vaccinated ? 'Yes' : 'No'}}</div>
+          </mat-card-subtitle>
+          <mat-card-subtitle class="subtitle-text">
+            Brief Information: <div class="subtitle-right-text">{{pet?.brifinfo}}</div>
+          </mat-card-subtitle>
+        </div>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div *ngIf="editMode">
+    <add-edit-pet (closeEditModeEvent)="updatePetInfo($event)" [petData]="pet" [petId]="pet.id"></add-edit-pet>
+  </div>
+</div>
+<div *ngIf="isLoading" class="loader">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>

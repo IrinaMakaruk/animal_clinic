@@ -1,0 +1,100 @@
+
+.mat-step-header
+.mat-step-icon-selected,
+.mat-step-header
+.mat-step-icon-state-done,
+.mat-step-header
+.mat-step-icon-state-edit,
+.mat-raised-button.mat-primary,
+.mat-mini-fab.mat-accent {
+  background-color: #57b464;
+}
+
+.mat-stroked-button.mat-primary {
+  color: #57b464;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+    background-color: #57b464;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color:  #57b464;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #57b464;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label,
+.mat-datepicker-toggle-active,
+.mat-focused .mat-form-field-required-marker,
+.mat-icon-button.mat-primary {
+  color: #57b464;
+}
+
+.mat-input-element {
+  caret-color: #57b464;
+}
+
+.mat-calendar-body-selected {
+  background-color: #57b464;
+  color: #fff;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;
+  padding: .75em 0 0 0 !important;
+}
+.mat-form-field-appearance-fill .mat-form-field-label {
+  margin-top: 0;
+}
+
+.mat-form-field-underline {
+  bottom: 1.6em;
+}
+
+.datepicker.mat-form-field.mat-focused .mat-form-field-label,
+.mat-datepicker-toggle-active {
+  top: 0.5em;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: .5em 0;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
+  background-color: #57b464;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #57b46369;
+}
+
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #57b464;
+}
+
+.mat-icon.mat-primary {
+  color: #fff
+}
+
+.mat-mini-fab .mat-button-wrapper {
+  padding: 0!important;
+}
+
+.owner-two-column-container .owner-info-card .mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

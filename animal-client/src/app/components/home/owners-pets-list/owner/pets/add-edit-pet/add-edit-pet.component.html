@@ -1,0 +1,62 @@
+<form *ngIf="!isLoading" [formGroup]="petForm" class="pet-form">
+  <mat-card class="fields-container">
+    <div *ngIf="!petData">
+      <a [routerLink]="['../../../owner-profile', ownerId]">
+        <button mat-icon-button class="owner-nav" color="primary">
+          <mat-icon>keyboard_arrow_left</mat-icon> Owner
+        </button>
+      </a>
+    </div>
+    <button *ngIf="petData" (click)="closeEditMode()" class="to-right" mat-mini-fab>
+      <mat-icon color="primary">close</mat-icon>
+    </button>
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>pets</mat-icon> Pet Name
+      </mat-label>
+      <input formControlName="name" matInput placeholder="Pet Name" required>
+    </mat-form-field>
+
+    <mat-form-field class="datepicker" appearance="fill">
+      <mat-label>Birthday</mat-label>
+      <input matInput formControlName="birthday" [min]="minDate" [max]="maxDate" [matDatepicker]="pickerPet" required>
+      <mat-datepicker-toggle matSuffix [for]="pickerPet"></mat-datepicker-toggle>
+      <mat-datepicker #pickerPet></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Color</mat-label>
+      <input formControlName="color" matInput placeholder="Color">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Specie</mat-label>
+      <input formControlName="specie" matInput placeholder="Specie">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Size</mat-label>
+      <input formControlName="size" matInput placeholder="Size">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Notes</mat-label>
+      <input type="textarea" formControlName="briefInfo" matInput placeholder="Notes">
+    </mat-form-field>
+    <div class="form-field">
+      <mat-radio-group formControlName="sex" aria-label="Select sex">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="form-field">
+      <mat-slide-toggle formControlName="vaccinated" labelPosition="before">Vaccinated</mat-slide-toggle>
+    </div>
+    <button *ngIf="petData" (click)="deletePet()" mat-icon-button class="delete-button">
+      <mat-icon>delete</mat-icon> Delete Pet
+    </button>
+    <button mat-raised-button (click)="onSubmit()" [disabled]="petForm.invalid || petForm.pristine" class="save-button"
+      color="primary"> Save</button>
+  </mat-card>
+</form>
+<div *ngIf="isLoading" class="loader">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+<div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>

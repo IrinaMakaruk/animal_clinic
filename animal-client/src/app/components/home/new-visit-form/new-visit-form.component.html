@@ -1,0 +1,96 @@
+<div class="first-visit-header"></div>
+<mat-accordion class="first-visit-container">
+	<div class="m-20">
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					Pet
+				</mat-panel-title>
+				<mat-panel-description>
+					Fill information about Pet and its Owner
+					<mat-icon>pets</mat-icon>
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+
+			<form>
+				<mat-vertical-stepper>
+					<mat-step label="Owner Information">
+						<mat-form-field>
+							<mat-label>Owner Name</mat-label>
+							<input matInput formControlName="firstCtrl" placeholder="First name, Last name" required>
+						</mat-form-field>
+						<div>
+							<button mat-stroked-button color="primary" matStepperNext>Next</button>
+						</div>
+					</mat-step>
+
+					<mat-step label="Pet Information" state="info">
+						<div class="fields-container">
+							<mat-form-field>
+								<mat-label>Pet Nickname</mat-label>
+								<input matInput formControlName="firstCtrl" required>
+							</mat-form-field>
+							<mat-form-field class="datepicker" appearance="fill">
+								<mat-label>Birthday</mat-label>
+								<input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerPet">
+								<mat-datepicker-toggle matSuffix [for]="pickerPet"></mat-datepicker-toggle>
+								<mat-datepicker #pickerPet></mat-datepicker>
+							</mat-form-field>
+							<div class="vaccination">
+								<mat-slide-toggle labelPosition="before">Vaccinated</mat-slide-toggle>
+							</div>
+							<div>
+								<button mat-stroked-button class="m-r-10" color="primary" matStepperPrevious>Back</button>
+								<button mat-stroked-button color="primary" matStepperNext>Next</button>
+							</div>
+						</div>
+					</mat-step>
+					<mat-step label="The reason and complaints">
+						<mat-form-field class="full-width">
+							<mat-label>Reason/Complaints</mat-label>
+							<textarea class="textarea-complaints" matInput></textarea>
+						</mat-form-field>
+						<button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+						<button mat-raised-button class="to-right" color="primary">Save Info</button>
+					</mat-step>
+				</mat-vertical-stepper>
+			</form>
+		</mat-expansion-panel>
+	</div>
+	<div class="m-20">
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					Wild Animal
+				</mat-panel-title>
+				<mat-panel-description>
+					Fill information about Wild Animal
+					<mat-icon>public</mat-icon>
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+
+			<form class="new-visit-container">
+				<div class="fields-container">
+					<mat-form-field>
+						<mat-label>Tracking Number</mat-label>
+						<input matInput placeholder="tracking id">
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Animal Nickname</mat-label>
+						<input matInput>
+					</mat-form-field>
+					<mat-form-field class="datepicker" appearance="fill">
+						<mat-label>Birthday</mat-label>
+						<input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="pickerWild">
+						<mat-datepicker-toggle matSuffix [for]="pickerWild"></mat-datepicker-toggle>
+						<mat-datepicker #pickerWild></mat-datepicker>
+					</mat-form-field>
+					<div class="vaccination">
+						<mat-slide-toggle labelPosition="before">Vaccinated</mat-slide-toggle>
+					</div>
+					<button mat-raised-button class="to-right wild-animal-save-button" color="primary">Save Info</button>
+				</div>
+			</form>
+		</mat-expansion-panel>
+	</div>
+</mat-accordion>

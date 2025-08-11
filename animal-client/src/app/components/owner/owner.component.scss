@@ -1,0 +1,128 @@
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  .mat-form-field {
+    max-width: 200px;
+  }
+  .owner-info-save-button {
+    width: 120px;
+    align-self: flex-end;
+  }
+  .address {
+    margin: 20px 0;
+    .mat-form-field {
+      margin-right: 20px;
+    }
+  }
+}
+
+.owner-container-header {
+  height: 130px;
+  background: url(../../../assets/images/animals-wall.jpg);
+}
+.owner-form {
+  margin: 20px;
+}
+
+.subtitle-right-text {
+  color: #474747;
+  font-size: 16px;
+}
+
+.owner-edit-button {
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  width: 35px;
+  height: 35px;
+}
+
+@media(max-width: 550px){
+  .owner-two-column-container {
+    display: flex;
+    flex-direction: column-reverse;
+    .column-1 li {
+      font-size: 14px;
+      height: 100%;
+    }
+    .column-2 {
+      margin-bottom: 15px;
+      height: 100%;
+    }
+    .owner-container-header {
+      order: 1;
+    }
+  }
+
+}
+@media(min-width: 551px){
+  .column-1 {
+    width: 35%;
+  }
+  .column-2 {
+    width: 65%;
+  }
+}
+.user-details {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 130px;
+  margin-top: 60px;
+}
+
+.user-details-avatar {
+  display: inline-block;
+  position: absolute;
+  top: -50px;
+  height: 160px;
+  width: 160px;
+  border: solid 5px #fff;
+  border-radius: 50%;
+  background-color: #d7edda;
+}
+.user-details-desc {
+  padding-bottom: 26px;
+  top: 0px;
+  left: 150px;
+  padding-top: 15px;
+  padding-left: 180px;
+}
+.user-details-desc__name {
+  display: inline-block;
+  font-family: 'Roboto Slab',serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #48484b;
+  margin-bottom: 8px;
+}
+.user-details-desc__text {
+  font-family: 'Open Sans',sans-serif;
+  font-size: 14px;
+  color: #868686;
+}
+
+.an-owner-profile .an-photo-container {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  border-radius: 90%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 3px;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  position: relative;
+}
+
+.an-owner-profile .an-photo-container .an-avatar-pic {
+  border-radius: 50%;
+  max-width: 100%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+}

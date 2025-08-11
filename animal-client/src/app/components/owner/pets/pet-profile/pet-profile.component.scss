@@ -1,0 +1,101 @@
+.pet-container {
+  display: flex;
+  height: 100vh;
+  .mat-form-field {
+    max-width: 300px;
+    margin-right: 20px;
+  }
+}
+
+.pet-edit-button {
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  width: 35px;
+  height: 35px;
+}
+
+.user-details {
+  position: relative;
+  padding: 15px;
+  min-height: 170px;
+}
+
+.user-details-avatar {
+  display: inline-block;
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  border: solid 5px #fff;
+  border-radius: 50%;
+  background-color: #d7edda;
+}
+.user-details-desc {
+  padding-bottom: 26px;
+  top: 0px;
+  left: 150px;
+  padding-top: 15px;
+  padding-left: 180px;
+}
+.user-details-desc__name {
+  display: inline-block;
+  font-family: 'Roboto Slab',serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #48484b;
+  margin-bottom: 8px;
+}
+.user-details-desc__text {
+  font-family: 'Open Sans',sans-serif;
+  font-size: 14px;
+  color: #868686;
+}
+
+.an-owner-profile .an-photo-container {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  border-radius: 90%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 3px;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  position: relative;
+}
+
+.an-owner-profile .an-photo-container .an-avatar-pic {
+  border-radius: 50%;
+  max-width: 100%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+.pet-info-card {
+  padding: 20px;
+}
+.subtitle-right-text {
+  color: #474747;
+  font-size: 16px;
+}
+
+.subtitles div {
+  display: inline;
+  margin-left: 5px;;
+}
+
+@media(max-width:550px) {
+  .pet-container {
+    flex-direction: column; 
+  }
+}
+
+@media(min-width: 550px) {
+  .pet-info-card {
+    width: 100%;
+  }
+}

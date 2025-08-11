@@ -1,0 +1,69 @@
+<div *ngIf="dataSource?.data.length; else noRecord" class="owner-pet-table">
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applySearch($event)" placeholder="Animal tracking Id" #input>
+  </mat-form-field>
+  <button class="delete-button" mat-icon-button color="warn" [disabled]="disabledDelete" (click)="deleteAnimal()">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <div class="material-table mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Open Owner Info Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row">
+          <a href="">
+            <button mat-icon-button color="warn">
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </a>
+        </td>
+      </ng-container>
+      <!-- fullName Column -->
+      <ng-container matColumnDef="trackingId">
+        <th mat-header-cell width="24%" *matHeaderCellDef mat-sort-header> Tracking Id </th>
+        <td mat-cell *matCellDef="let row"> {{row.trackingId}} </td>
+      </ng-container>
+
+      <!-- PhoneNumber Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell width="25%" *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="specie">
+        <th mat-header-cell width="25%" *matHeaderCellDef mat-sort-header> Specie </th>
+        <td mat-cell *matCellDef="let row"> {{row.specie}} </td>
+      </ng-container>
+
+      <!-- Address Column -->
+      <ng-container matColumnDef="birthday">
+        <th mat-header-cell width="25%" *matHeaderCellDef mat-sort-header> Birthday </th>
+        <td mat-cell *matCellDef="let row"> {{row.birthday | date:'mediumDate'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedRowIndex == row.id}"
+        (click)="selectRow(row.id)" (dblclick)="openAnimalProfile(row.id)">
+      </tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the search "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [length]="wildAnimalsCount" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+<ng-template #noRecord>
+  <div *ngIf="!isLoading" class="no-record">
+    <img src="../../../assets/images/dog2.jpeg">
+    <p>Ooops, No Records yet...</p>
+  </div>
+</ng-template>
+<div *ngIf="isLoading" class="loader">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>

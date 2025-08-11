@@ -1,0 +1,17 @@
+.pet-form {
+  padding: 20px;
+  display: flex;
+  .mat-form-field {
+    max-width: 300px;
+    margin-right: 20px;
+  }
+}
+
+.save-button {
+  width: 120px;
+  float: right;
+}
+
+.form-field {
+  margin: 20px 0;
+}
